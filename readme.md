@@ -14,6 +14,9 @@ Aplicativo Backend que no momento retorna as seguintes resposta
 - Retorna todos os usuario get: 
 
 
+## user 
+
+
 ## Modulos
 - sequelice
 - sequelice-cli

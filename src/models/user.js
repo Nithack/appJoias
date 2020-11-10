@@ -1,19 +1,14 @@
-'use strict';
 const {
     Model
 } = require('sequelize');
 module.exports = (sequelize, DataTypes) => {
     class user extends Model {
         static associate(models) {
-            user.hasMany(models.product, {
-                foreigKey: 'id',
-                as: 'products',
-                onDelete: 'CASCADE'
-            })
+
         }
     };
     user.init({
-        userId: {
+        id: {
             allowNull: false,
             autoIncrement: true,
             primaryKey: true,
@@ -26,7 +21,7 @@ module.exports = (sequelize, DataTypes) => {
                 notEmpty: { msg: "O campo name precisa ser preenchido." },
                 notNull: { msg: 'O campo name precisa ser preenchido' },
             }
-        }
+        },
     }, {
         defaultScope: {},
         scopes: {
@@ -40,5 +35,11 @@ module.exports = (sequelize, DataTypes) => {
         modelName: 'user',
 
     });
+    user.associate = models => {
+        user.hasMany(models.product, {
+            as: 'products',
+            foreignKey: 'userId'
+        })
+    }
     return user;
 };
