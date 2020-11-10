@@ -1,16 +1,10 @@
-'use strict';
 const {
     Model
 } = require('sequelize');
+
 module.exports = (sequelize, DataTypes) => {
     class product extends Model {
-        static associate(models) {
-            product.belongsTo(models.user, {
-                foreignKey: 'userId',
-                as: 'owner',
-                onDelete: 'CASCADE'
-            })
-        }
+        static associate(models) {}
     };
     product.init({
         id: {
@@ -44,8 +38,22 @@ module.exports = (sequelize, DataTypes) => {
             }
         },
     }, {
+        defaultScope: {},
+        scopes: {
+            findAllproducts: {
+                attributes: {
+                    exclude: ['updatedAt', 'createdAt']
+                }
+            }
+        },
         sequelize,
         modelName: 'product',
     });
+    product.associate = models => {
+        product.belongsTo(models.user, {
+            as: 'user',
+            foreignKey: 'userId'
+        })
+    }
     return product;
 };

@@ -1,11 +1,11 @@
 const { user } = require('../../../models/')
 
 const deleteUser = async(req, res, next) => {
-    const { userId } = req.params
+    const { id } = req.params
     try {
-        let users = await user.findOne({ where: { userId: userId } });
+        let users = await user.findOne({ where: { id: id } });
         if (users != null) {
-            await user.destroy({ where: { userId: userId } })
+            await user.destroy({ where: { id: id } })
             res.json({ message: users.name + ' has be delete' })
         } else {
             throw new Error('Not Find User')

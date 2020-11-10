@@ -7,15 +7,12 @@ const createUser = async(req, res, next) => {
     if (validateErrors.length > 0) {
         let field = validateErrors[0].path
         let message = validateErrors[0].message
-        return res.status(422).json({ field, message })
+        res.status(422).json({ field, message })
     }
-    let createUser = await user.create({ name: name }).catch(err => err.errors)
-    if (createUser.length > 0) {
-        let field = createUser[0].path
-        let message = createUser[0].message
-        return res.status(422).json({ field, message })
-    }
-    res.json({ createUser })
+    let newProduc = await user.create({ name: name }).catch((error => {
+        res.status(422).json({ message: error })
+    }))
+    res.json({ newProduc })
 
 }
 module.exports = {
