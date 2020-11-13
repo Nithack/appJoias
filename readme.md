@@ -21,9 +21,6 @@ Aplicativo Backend que no momento retorna as seguintes resposta
 - Cria um produto post: { "name": 'nome do produto', "price": 'valor do produto', "productId": 'id do owner'}
 
 ### productDelete
-- Remove um usuario delete: url/product/:id
-
-### productDelete
 - Remove um produto delete: url/product/:id
 
 ### productList 
