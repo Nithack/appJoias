@@ -6,26 +6,32 @@ Aplicativo Backend que no momento retorna as seguintes resposta
 
 ## user 
 
-### userCreate
-- Cria um usuario post: { "name": 'nome do usario'}
+### createUser
+- Cria um usuario post: { "name": 'nome do usuário'}
 
-### userDelete
+### deleteUser
 - Remove um usuario delete: url/user/:id
 
-### userList 
-- Retorna todos os usuario get: 
+### listUsers 
+- Retorna todos os usuário get: 
+
+### findUser
+
+- Retorna um usuário get:id
 
 ## product
 
-### productCreate
+### deleteProduct
 - Cria um produto post: { "name": 'nome do produto', "price": 'valor do produto', "productId": 'id do owner'}
 
 ### productDelete
 - Remove um produto delete: url/product/:id
 
-### productList 
+### listProducts 
 - Retorna todos os produtos get: 
 
+### findProduct
+- Retorna um produto  get:id
 
 ## Modulos
 - sequelice
