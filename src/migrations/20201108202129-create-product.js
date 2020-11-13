@@ -11,7 +11,18 @@ module.exports = {
                 allowNull: false,
                 type: Sequelize.INTEGER
             },
+            describe: {
+                allowNull: false,
+                type: Sequelize.STRING
+            },
+            amount: {
+                allowNull: false,
+                type: Sequelize.INTEGER
+            },
             name: {
+                type: Sequelize.STRING
+            },
+            image: {
                 type: Sequelize.STRING
             },
             userId: {

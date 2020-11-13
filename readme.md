@@ -4,6 +4,8 @@
 
 Aplicativo Backend que no momento retorna as seguintes resposta
 
+## user 
+
 ### userCreate
 - Cria um usuario post: { "name": 'nome do usario'}
 
@@ -13,8 +15,19 @@ Aplicativo Backend que no momento retorna as seguintes resposta
 ### userList 
 - Retorna todos os usuario get: 
 
+## product
 
-## user 
+### productCreate
+- Cria um produto post: { "name": 'nome do produto', "price": 'valor do produto', "productId": 'id do owner'}
+
+### productDelete
+- Remove um usuario delete: url/product/:id
+
+### productDelete
+- Remove um produto delete: url/product/:id
+
+### productList 
+- Retorna todos os produtos get: 
 
 
 ## Modulos
@@ -24,3 +37,5 @@ Aplicativo Backend que no momento retorna as seguintes resposta
 - nodemon
 - pg
 - express
+
+

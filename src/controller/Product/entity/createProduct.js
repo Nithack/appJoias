@@ -1,8 +1,9 @@
 const { product } = require('../../../models')
 
 const createProduct = async(req, res, next) => {
-    let { name, price, userId } = req.body
-    let modelBuild = product.build({ name: name, price: price, userId: userId });
+    let newJoia = { name, price, userId, amount, describe, image } = req.body
+    console.log(newJoia.describe)
+    let modelBuild = product.build({ name: newJoia.name, image: newJoia.image, price: newJoia.price, describe: newJoia.describe, amount: newJoia.amount, userId: newJoia.userId });
     let validateErrors = await modelBuild.validate().catch(err => err.errors);
     if (validateErrors.length > 0) {
         let field = validateErrors[0].path
@@ -10,7 +11,7 @@ const createProduct = async(req, res, next) => {
         return res.status(422).json({ field, message })
     }
     try {
-        let newProduct = await product.create({ name: name, price: price, userId: userId })
+        let newProduct = await product.create({ name: newJoia.name, image: newJoia.image, price: newJoia.price, describe: newJoia.describe, amount: newJoia.amount, userId: newJoia.userId })
         if (newProduct != null) {
             res.json({ newProduct })
         } else {

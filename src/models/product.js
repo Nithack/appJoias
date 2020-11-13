@@ -21,6 +21,9 @@ module.exports = (sequelize, DataTypes) => {
                 notNull: { msg: 'O campo name precisa ser preenchido' },
             }
         },
+        image: {
+            type: DataTypes.STRING
+        },
         price: {
             type: DataTypes.INTEGER,
             allowNull: false,
@@ -29,6 +32,23 @@ module.exports = (sequelize, DataTypes) => {
                 notNull: { msg: 'O campo price precisa ser preenchido' },
             }
         },
+        describe: {
+            type: DataTypes.STRING,
+            allowNull: false,
+            validate: {
+                notEmpty: { msg: "O campo describe precisa ser preenchido." },
+                notNull: { msg: 'O campo describe precisa ser preenchido' },
+            }
+        },
+        amount: {
+            type: DataTypes.INTEGER,
+            allowNull: false,
+            validate: {
+                notEmpty: { msg: "O campo amount precisa ser preenchido." },
+                notNull: { msg: 'O campo amount precisa ser preenchido' },
+            }
+        },
+
         userId: {
             type: DataTypes.INTEGER,
             allowNull: false,
@@ -40,7 +60,7 @@ module.exports = (sequelize, DataTypes) => {
     }, {
         defaultScope: {},
         scopes: {
-            findAllproducts: {
+            findAllProducts: {
                 attributes: {
                     exclude: ['updatedAt', 'createdAt']
                 }
